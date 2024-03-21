@@ -21,15 +21,6 @@ Moreover, the setup script will also rename the package name in both package.jso
 
 _Note: never add the .env file to git or any other version control system. It's meant to be a local file with custom configurations relative to the machine where the app runs_
 
-## Quick start
-
-Inside the project root directory open a shell and run:
-- `docker-compose up -d` to start the PostgreSQL container
-- `npm run build` to build the typescript source files
-- `npm run migrate` to run all the pending migrations
-- `npm run seed` to seed the database with test data
-- `npm run dev` to start the project in development (watch) mode
-
 ## npm run ...
 
 This template provides a set of useful scripts that can be called using the `npm run <script>` syntax.
@@ -46,9 +37,3 @@ These scripts are:
 - `gen:secret`: regenerates the SECRET inside the .env file
 
 ## docker
-
-This template includes a docker-compose.yml that is used to startup a PostgreSQL container. The following commands can be used to manage the containers:
-- `docker-compose up -d`: starts the containers in detached mode, so they won't block your shell
-- `docker-compose down`: stops and removes the containers, by default **removing also all the data**. To enable data persistence you just can uncomment some lines in docker-compose.yml as described in the file
-- `docker-compose exec postgres psql -U default -d default`: logs your shell into the PostgreSQL CLI client of the container
-- `docker-compose build`: rebuilds the containers, useful if you edit the Dockerfile or to the init.sql script
