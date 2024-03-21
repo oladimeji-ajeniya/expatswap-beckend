@@ -33,29 +33,6 @@ class UserService {
   	}
   }
 
-//   public async getUsers(startDate?: Date, endDate?: Date, page = 1, limit = 10): Promise<UserDocument[]> {
-//   	try {
-//   		const skip = (page - 1) * limit; // Calculate skip value based on page number and limit
-
-//   		// Construct the date range query
-//   		const matchStage = this.dateRangeQuery(startDate, endDate);
-//   		const collection: Collection<UserDocument> = database.collection(this.collectionName);
-
-//   		// Aggregation pipeline
-//   		const pipeline = [
-//   			{ $match: matchStage }, // Match documents based on the date range
-//   			{ $skip: skip }, // Skip documents based on pagination
-//   			{ $limit: limit }, // Limit the number of documents returned based on pagination
-//   		];
-
-//   		// Execute aggregation pipeline and cast the result to UserDocument[]
-//   		const users: UserDocument[] = await collection.aggregate<UserDocument>(pipeline).toArray();
-//   		return users;
-//   	} catch (error) {
-//   		throw new Error(`Error fetching users: ${error.message}`);
-//   	}
-//   }
-
 public async getUsers(startDate?: Date, endDate?: Date, page = 1, limit = 10): Promise<{ users: UserDocument[], count: number }> {
 	try {
 	  const skip = (page - 1) * limit; // Calculate skip value based on page number and limit
