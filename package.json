@@ -7,7 +7,7 @@
     "test": "mocha 'tests/**/*.ts'",
     "test:prepare": "npm run build",
     "coverage": "nyc npm run test",
-    "build": "rimraf build && tsc",
+    "build": "tsc -p tsconfig.json",
     "start": "node -r dotenv/config --unhandled-rejections=strict --enable-source-maps .",
     "dev": "nodemon",
     "lint": "eslint .",
