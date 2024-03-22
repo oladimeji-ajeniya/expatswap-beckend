@@ -12,12 +12,11 @@ const router: Router = Router();
 
 export default router;
 
-router.post('/api/user', async (req: Request, res: Response) => {
+router.post('/api/user', validateUser, async (req: Request, res: Response) => {
 	const errors = validationResult(req);
 	if (!errors.isEmpty()) {
 		return res.status(HttpStatus.BadRequest).json({ errors: errors.array() });
 	}
-	console.log(errors, "validation error");
 	try {
 		const user = await userHandler.addUser(req.body.user);
 		res.status(HttpStatus.Created).json(user);
