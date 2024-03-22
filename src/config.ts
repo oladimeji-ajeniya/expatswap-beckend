@@ -32,19 +32,6 @@ const config = {
 		locale: process.env.PRODUCT_LOCALE!,
 	},
 	signedUrlExpirationSeconds: Number(process.env.SIGNED_URL_EXPIRATION_SECONDS),
-	smtp: {
-		default: {
-			port: Number(process.env.SMTP_PORT),
-			host: process.env.SMTP_HOST!,
-			ssl: process.env.SMTP_SSL!,
-			username: process.env.SMTP_USER!,
-			password: process.env.SMTP_PASS!,
-			from: process.env.SMTP_FROM!,
-		},
-	},
-	swagger: {
-		host: process.env.SWAGGER_HOST!,
-	},
 	database: {
 		connection: `mongodb+srv://${process.env.MONGO_DB_NAME}:${process.env.MONGO_DB_PASSWORD}@${process.env.MONGO_DB_CLUSTER}/?retryWrites=true&w=majority&&appName=${process.env.MONGO_DB_APPNAME}`,
 	},
