@@ -13,7 +13,7 @@ const router: Router = Router();
 export default router;
 
 router.post('/api/user', validateUser, async (req: Request, res: Response) => {
-	const errors = validationResult(req);
+	const errors = validationResult(req.body);
 	if (!errors.isEmpty()) {
 		return res.status(HttpStatus.BadRequest).json({ errors: errors.array() });
 	}
